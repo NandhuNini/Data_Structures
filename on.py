@@ -1,2 +1,3 @@
-arr=[1,2,3,4,-1]
+from array import *
+arr=array('u',['a','b','c'])
 print(arr)
