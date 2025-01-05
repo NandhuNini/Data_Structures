@@ -61,6 +61,7 @@ arr1.insert(5,11)
 print("After insertion array:",arr1)
 
 # loop for finding element
+#arr1.extend([5,5,5])
 print(arr1)
 a=5
 for i in range(0, len(arr1)):
