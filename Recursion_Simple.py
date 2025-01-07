@@ -38,13 +38,3 @@ def reverse(n):
 n=int(input("Enter the number:"))
 reverse(n)
 
-# Fibanacci sequence
-
-def fib(n):
-    if n==1//n==2:
-        return 1
-    print(n)
-    fib((n+1)+(n-2))
-n=int(input("enter a num:"))
-fib(n)
-    
