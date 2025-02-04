@@ -136,15 +136,21 @@
     backgroundMusic.play();
 
     // Add event listeners
+   
     yesBtn.addEventListener('click', () => {
-      question.classList.add('hidden'); // Hide the question
-      message.innerHTML = "<p>Yay! Love accepted! 💖</p>";
-      message.classList.remove('hidden');
-      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      quoteDiv.innerHTML = `<p>${randomQuote}</p>`;
-      quoteDiv.classList.remove('hidden');
-      noBtn.style.display = 'none'; // Hide the "No" button after clicking "Yes"
-    });
+  question.classList.add('hidden'); 
+  message.innerHTML = "<p>Yay! Love accepted! </p>";
+  message.classList.remove('hidden');
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  quoteDiv.innerHTML = `<p>${randomQuote}</p>`;
+  quoteDiv.classList.remove('hidden');
+  noBtn.style.display = 'none'; 
+  setTimeout(() => { // Play the audio file after a short delay
+    backgroundMusic.play();
+  }, 1000); // Adjust the delay as needed
+});
+
+// Hide the "No" button after clicking "Yes"
 
     noBtn.addEventListener('mouseover', () => {
       // Move the "No" button randomly when hovered
