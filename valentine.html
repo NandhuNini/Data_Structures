@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine's Day - Yes or No?</title>
+  <title>Valentine's Day</title>
   <style>
     /* General Styles */
     body {
@@ -61,7 +61,7 @@
       transform: scale(1.1);
     }
 
-    #message {
+    #quote {
       margin-top: 1.5rem;
       font-size: 1.5rem;
       animation: bounce 1s infinite;
@@ -91,29 +91,58 @@
         transform: translateY(-10px);
       }
     }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      button {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Will You Be My Valentine?</h1>
+    <h1 id="question">Will You Be My Valentine?</h1>
     <div class="buttons">
       <button id="yesBtn">Yes</button>
       <button id="noBtn">No</button>
     </div>
-    <div id="message" class="hidden">
-      <p>Yay! You made my day! 💖</p>
-    </div>
+    <div id="message" class="hidden"></div>
+    <div id="quote" class="hidden"></div>
   </div>
+
+  <audio id="backgroundMusic" src="A thousand years.mp3" loop></audio>
+
 
   <script>
     // Get elements
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
     const message = document.getElementById('message');
+    const quoteDiv = document.getElementById('quote');
+    const question = document.getElementById('question');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+
+    // Array of love quotes
+    const quotes = [
+      "Love is composed of a single soul inhabiting two bodies.",
+      "You know you're in love when you can't fall asleep because reality is finally better than your dreams.",
+      "I love you not only for what you are, but for what I am when I am with you.",
+      "In all the world, there is no heart for me like yours.",
+      "You are my today and all of my tomorrows."
+    ];
+
+    // Play background music
+    backgroundMusic.play();
 
     // Add event listeners
     yesBtn.addEventListener('click', () => {
+      question.classList.add('hidden'); // Hide the question
+      message.innerHTML = "<p>Yay! Love accepted! 💖</p>";
       message.classList.remove('hidden');
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteDiv.innerHTML = `<p>${randomQuote}</p>`;
+      quoteDiv.classList.remove('hidden');
       noBtn.style.display = 'none'; // Hide the "No" button after clicking "Yes"
     });
 
